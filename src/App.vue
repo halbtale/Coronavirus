@@ -1,12 +1,23 @@
 <template>
-    <div id="app">
+    <div id="app" v-visibility-change="visibilityChange">
         <router-view />
     </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 export default {
-    methods: {}
+    created() {
+        this.load();
+    },
+    methods: {
+        ...mapActions(['load']),
+        visibilityChange(e, hidden) {
+            if (!hidden) {
+                this.load();
+            }
+        }
+    }
 };
 </script>
 

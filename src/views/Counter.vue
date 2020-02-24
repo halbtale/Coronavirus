@@ -1,5 +1,5 @@
 <template>
-    <div id="counter" v-visibility-change="visibilityChange">
+    <div id="counter">
         <h1 class="title">
             Coronavirus
             <br />Live stats
@@ -20,28 +20,19 @@
 </template>
 
 <script>
-import loadData from '../mixins/loadData.js';
+import { mapState, mapActions } from 'vuex';
+
 export default {
     name: 'App',
-    data() {
-        return {
-            infectedTotal: 0,
-            deathsTotal: 0,
-            infectedItaly: 0,
-            deathsItaly: 0
-        };
+    computed: {
+        ...mapState(['infectedTotal', 'deathsTotal', 'infectedItaly', 'deathsItaly'])
     },
     created() {
         this.load();
     },
     methods: {
-        visibilityChange(e, hidden) {
-            if (!hidden) {
-                this.load();
-            }
-        }
-    },
-    mixins: [loadData]
+        ...mapActions(['load'])
+    }
 };
 </script>
 
