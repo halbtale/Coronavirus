@@ -1,14 +1,16 @@
 <template>
     <div id="home">
-        <h1 class="title">
-            Coronavirus Info
-        </h1>
+        <h1 class="title">Coronavirus Info</h1>
         <main class="main">
             <router-link to="/counter" tag="div" class="link link--main">Live counter</router-link>
         </main>
         <section class="secondary">
             <router-link to="/info" tag="div" class="link link--secondary">Che cos'è?</router-link>
-            <router-link to="/transmission" tag="div" class="link link--secondary">Come si trasmette?</router-link>
+            <router-link
+                to="/transmission"
+                tag="div"
+                class="link link--secondary"
+            >Come si trasmette?</router-link>
             <router-link to="/prevention" tag="div" class="link link--secondary">Come proteggersi?</router-link>
         </section>
     </div>
@@ -16,7 +18,8 @@
 
 <style lang="scss" scoped>
 #home {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url("../assets/background.jpg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -26,10 +29,10 @@
     color: white;
     align-items: center;
     justify-content: center;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
 }
 .title {
-    font-family: 'Coda';
+    font-family: "Coda";
     font-size: 4em;
     text-align: center;
     margin: 0 30px;
@@ -54,6 +57,7 @@
     }
 }
 .link {
+    cursor: pointer;
     text-align: center;
     display: flex;
     justify-content: center;
