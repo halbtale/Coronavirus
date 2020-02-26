@@ -3,11 +3,10 @@
         <h1 class="title">Coronavirus Info</h1>
 
         <main class="main">
-            <a
-                href="/counter"
-                class="link link--main"
-                @click="goTo( $event, 'counter')"
-            >Live counter</a>
+            <a href="/counter" class="link link--main" @click="goTo( $event, 'counter')">
+                Live counter
+                <span class="blinking">🔴</span>
+            </a>
         </main>
         <section class="secondary">
             <a href="/info" class="link link--secondary" @click="goTo( $event, 'info')">Che cos'è?</a>
@@ -89,6 +88,8 @@ export default {
     color: currentColor;
     text-decoration: none;
     &--main {
+        display: flex;
+        align-items: center;
         padding: 30px 0;
         border: 10px solid white;
         border-radius: 10px;
@@ -121,6 +122,24 @@ export default {
             font-weight: normal;
             border: 2px solid white;
         }
+    }
+}
+
+.blinking {
+    animation: 1s blink ease infinite;
+    display: inline-block;
+    margin-left: 1em;
+    font-size: 0.5em;
+    transform: translateY(0.15em);
+}
+
+@keyframes blink {
+    from,
+    to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
     }
 }
 </style>
