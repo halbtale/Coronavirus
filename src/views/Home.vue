@@ -1,20 +1,42 @@
 <template>
     <div id="home">
         <h1 class="title">Coronavirus Info</h1>
+
         <main class="main">
-            <router-link to="/counter" tag="div" class="link link--main">Live counter</router-link>
+            <a
+                href="/counter"
+                class="link link--main"
+                @click="goTo( $event, 'counter')"
+            >Live counter</a>
         </main>
         <section class="secondary">
-            <router-link to="/info" tag="div" class="link link--secondary">Che cos'è?</router-link>
-            <router-link
-                to="/transmission"
-                tag="div"
+            <a href="/info" class="link link--secondary" @click="goTo( $event, 'info')">Che cos'è?</a>
+
+            <a
+                href="/transmission"
                 class="link link--secondary"
-            >Come si trasmette?</router-link>
-            <router-link to="/prevention" tag="div" class="link link--secondary">Come proteggersi?</router-link>
+                @click="goTo( $event, 'transmission')"
+            >Come si trasmette?</a>
+
+            <a
+                href="/prevention"
+                class="link link--secondary"
+                @click="goTo( $event, 'prevention')"
+            >Come proteggersi?</a>
         </section>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        goTo(event, page) {
+            event.preventDefault();
+            this.$router.push(`/${page}`);
+        }
+    }
+};
+</script>
 
 <style lang="scss" scoped>
 #home {
@@ -63,6 +85,9 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    display: block;
+    color: currentColor;
+    text-decoration: none;
     &--main {
         padding: 30px 0;
         border: 10px solid white;
