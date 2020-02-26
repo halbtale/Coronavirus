@@ -20,7 +20,6 @@ if (process.env.NODE_ENV === 'production') {
             console.log('New content is downloading.');
         },
         updated() {
-            alert('Aggiornamento disponibile. Si prega di chiuedere e riaprire la web app');
             console.log('New content is available; please refresh.');
         },
         offline() {
