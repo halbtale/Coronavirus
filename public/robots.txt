@@ -1,2 +1,3 @@
+Sitemap: https://coronavirusinfo.netlify.com/sitemap.xml
 User-agent: *
 Disallow:
