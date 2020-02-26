@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 const domparser = new DOMParser();
+const storage = window.localStorage;
 
 Vue.use(Vuex);
 
@@ -22,6 +23,15 @@ export default new Vuex.Store({
     actions: {
         async load({ commit }) {
             let infectedTotal, deathsTotal, infectedItaly, deathsItaly;
+
+            infectedTotal = storage.getItem('infectedTotal');
+            deathsTotal = storage.getItem('deathsTotal');
+            infectedItaly = storage.getItem('infectedItaly');
+            deathsItaly = storage.getItem('deathsItaly');
+
+            if (infectedTotal && deathsTotal && infectedItaly && deathsItaly) {
+                commit('setNewStats', { infectedTotal, deathsTotal, infectedItaly, deathsItaly });
+            }
 
             // Get webpage HTML
             const rawData = await fetch(
@@ -47,6 +57,12 @@ export default new Vuex.Store({
                     break;
                 }
             }
+
+            storage.setItem('infectedTotal', infectedTotal);
+            storage.setItem('deathsTotal', deathsTotal);
+            storage.setItem('infectedItaly', infectedItaly);
+            storage.setItem('deathsItaly', deathsItaly);
+
             commit('setNewStats', { infectedTotal, deathsTotal, infectedItaly, deathsItaly });
         }
     },

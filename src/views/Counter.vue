@@ -20,25 +20,25 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-    name: 'App',
+    name: "App",
     computed: {
-        ...mapState(['infectedTotal', 'deathsTotal', 'infectedItaly', 'deathsItaly'])
-    },
-    created() {
-        this.load();
-    },
-    methods: {
-        ...mapActions(['load'])
+        ...mapState([
+            "infectedTotal",
+            "deathsTotal",
+            "infectedItaly",
+            "deathsItaly"
+        ])
     }
 };
 </script>
 
 <style lang="scss" scoped>
 #counter {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url("../assets/background.jpg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -48,10 +48,10 @@ export default {
     color: white;
     align-items: center;
     justify-content: center;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
 }
 .title {
-    font-family: 'Coda';
+    font-family: "Coda";
     font-size: 4em;
     text-align: center;
     margin-bottom: 8vh;
