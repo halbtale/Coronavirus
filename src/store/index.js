@@ -46,7 +46,7 @@ export default new Vuex.Store({
             deathsTotal = mainCounterSpans[1].innerText;
 
             // Get Italy counts
-            const table = doc.querySelectorAll('#table3 tbody tr');
+            const table = doc.querySelectorAll('#main_table_countries tbody tr');
             for (let i = 0; i < table.length; i++) {
                 const row = table[i];
                 const elements = row.querySelectorAll('td');
