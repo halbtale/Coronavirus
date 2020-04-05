@@ -10,7 +10,7 @@ export default new Vuex.Store({
         infectedTotal: 0,
         deathsTotal: 0,
         infectedItaly: 0,
-        deathsItaly: 0
+        deathsItaly: 0,
     },
     mutations: {
         setNewStats(state, payload) {
@@ -18,7 +18,7 @@ export default new Vuex.Store({
             state.deathsTotal = payload.deathsTotal;
             state.infectedItaly = payload.infectedItaly;
             state.deathsItaly = payload.deathsItaly;
-        }
+        },
     },
     actions: {
         async load({ commit }) {
@@ -46,7 +46,7 @@ export default new Vuex.Store({
             deathsTotal = mainCounterSpans[1].innerText;
 
             // Get Italy counts
-            const table = doc.querySelectorAll('#main_table_countries tbody tr');
+            const table = doc.querySelectorAll('#main_table_countries_today tbody tr');
             for (let i = 0; i < table.length; i++) {
                 const row = table[i];
                 const elements = row.querySelectorAll('td');
@@ -64,7 +64,7 @@ export default new Vuex.Store({
             storage.setItem('deathsItaly', deathsItaly);
 
             commit('setNewStats', { infectedTotal, deathsTotal, infectedItaly, deathsItaly });
-        }
+        },
     },
-    modules: {}
+    modules: {},
 });
