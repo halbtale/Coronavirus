@@ -1,7 +1,8 @@
 <template>
     <page title="Che cos'è?">
         <p>
-            Il <strong>SARS-CoV-2</strong> (acronimo inglese di Severe Acute Respiratory Syndrome CoronaVirus 2),
+            Il
+            <strong>SARS-CoV-2</strong> (acronimo inglese di Severe Acute Respiratory Syndrome CoronaVirus 2),
             chiamato anche nuovo coronavirus nCoV-2019,è un virus facente parte del genere betacoronavirus (e famiglia
             Coronaviridae) scoperto intorno alla fine del 2019.
         </p>
@@ -41,10 +42,6 @@
             infettivo quanto il SARS-CoV del 2002.
         </p>
         <p>
-            Durante una conferenza di aggiornamento del 29 gennaio 2020, l’organizzazione Mondiale della Sanità fa
-            sapere che il metodo di trasmissione non è solo diretto, ma anche indiretto per contatto.
-        </p>
-        <p>
             Il genoma del 2019-nCoV-ARD presenta il 89% di nucleotidi identici a quelli della SARS-like-CoVZXC21
             (pipistrelli) e l'82% identici a quelli della SARS-CoV umana; tuttavia solo il 40% degli aminoacidi coincide
             con quelli dei coronavirus legati alla SARS.
@@ -53,7 +50,7 @@
 </template>
 
 <script>
-import page from '../components/page';
+import page from "../components/page";
 export default {
     components: {
         page

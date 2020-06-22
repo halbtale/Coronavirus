@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.660f51ad302aa4af7d132a9dcc7f5152.js"
+  "/precache-manifest.5a1682860b0f9510695910347820816f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "coronavirus"});
