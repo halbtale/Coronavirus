@@ -21,7 +21,7 @@ export default {
     },
     watch: {
         $route(to) {
-            document.title = "Coronavirus - " + to.name || "Coronavirus Info";
+            document.title = to.name || "Coronavirus Info";
         }
     }
 };

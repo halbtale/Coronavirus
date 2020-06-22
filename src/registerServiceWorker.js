@@ -22,12 +22,8 @@ if (process.env.NODE_ENV === 'production') {
 		updated() {
 			console.log('New content is available; please refresh.');
 
-			const script = document.createElement('script');
-			script.setAttribute('type', 'text/javascript');
-			script.innerHTML = 'window.location.reload(true);';
-
-			const body = document.querySelector('body');
-			body.appendChild(script);
+			alert('Website has been updated');
+			window.location.reload(true);
 		},
 		offline() {
 			console.log('No internet connection found. App is running in offline mode.');
