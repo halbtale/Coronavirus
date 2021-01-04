@@ -5,21 +5,45 @@
 			<br />Live stats
 		</h1>
 
-		<p class="caption">Nuovi infetti in italia</p>
+		<p class="caption">Ultimo aggiornamento</p>
+		<h2 class="number">{{ lastUpdate }}</h2>
+
+		<p class="caption">Nuovi infetti in Italia</p>
 		<h2 class="number">{{ nationalInfectsIncrement }}</h2>
+
+		<p class="caption">Nuovi infetti in Veneto</p>
+		<h2 class="number">{{ venetoInfectsIncrement }}</h2>
 	</div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import moment from "moment";
 
 export default {
 	name: "App",
 	computed: {
 		...mapState(["nationalData", "regionsData"]),
+		lastUpdate() {
+			if (!this.nationalData) return "LOADING...";
+			const isoDateString = this.nationalData[0]["data"];
+			const date = moment(isoDateString).locale("it");
+			return date.format("D MMMM YYYY, HH:mm");
+		},
 		nationalInfectsIncrement() {
 			if (!this.nationalData) return "LOADING...";
 			return this.nationalData[0]["nuovi_positivi"];
+		},
+		nationalTestsIncrement() {
+			if (!this.nationalData) return "LOADING...";
+			return null;
+		},
+		venetoInfectsIncrement() {
+			if (!this.regionsData) return "LOADING...";
+			const venetoData = this.regionsData.find(
+				(regionData) => regionData.denominazione_regione === "Veneto"
+			);
+			return venetoData["nuovi_positivi"];
 		},
 	},
 };

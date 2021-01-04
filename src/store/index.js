@@ -4,7 +4,6 @@ import axios from 'axios'
 
 const API_NATIONAL_DATA_URL = 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-andamento-nazionale-latest.json'
 const API_REGIONS_DATA_URL = 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json'
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
 Vue.use(Vuex);
 
@@ -21,8 +20,8 @@ export default new Vuex.Store({
 	},
 	actions: {
 		async load({ commit }) {
-			const nationalData = (await axios.get(PROXY_URL + API_NATIONAL_DATA_URL)).data;
-			const regionsData = (await axios.get(PROXY_URL + API_REGIONS_DATA_URL)).data;
+			const nationalData = (await axios.get(API_NATIONAL_DATA_URL)).data;
+			const regionsData = (await axios.get(API_REGIONS_DATA_URL)).data;
 			commit('setNewStats', {nationalData, regionsData})
 		}
 	},
